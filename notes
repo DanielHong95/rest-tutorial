@@ -1,0 +1,33 @@
+yarn init
+yarn add express pg sequelize
+
+HELLO WORLD
+
+Dockefile
+.dockerignore
+
+docker build -t test1 .
+docker push
+
+Repository dockerhub
+
+docker run -p 
+
+DEV ROUTES
+
+docker-compose.yml
+docker compose builddokcer compose push
+
+POSTGRES
+DB: added to docker-compose.yml
+
+docker-compose up -d nose_tabnine_db
+
+docker exec -it <ID> psql -U **** nodedb
+
+\d
+\dt
+\q
+
+BUILD REST API
+util/database.js
