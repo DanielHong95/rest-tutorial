@@ -1,4 +1,6 @@
 const express = require("express");
+const sequelize = require("./util/database");
+const User = require("./models/users");
 const app = express();
 
 // middleware
@@ -11,8 +13,18 @@ app.use((req, res, next) => {
   next();
 });
 
-try {
-  app.listen(process.env.EXTERNAL_PORT || 3001);
-} catch (error) {
-  console.error(error);
-}
+// import routes
+app.use("/dev", require("./routes/dev"));
+app.use("/users", require("./routes/users"));
+
+(async () => {
+  try {
+    await sequelize.sync({
+      force: false,
+    });
+    console.log("test");
+    app.listen(process.env.EXTERNAL_PORT || 5000);
+  } catch (error) {
+    console.error(error);
+  }
+})();

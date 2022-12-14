@@ -1,0 +1,32 @@
+version: '3.8'
+
+services:
+  rest_backend:
+    container_name: rest-tutorial
+    image: rest-tutorial:0.0.5
+    build:
+      context: .
+    ports:
+      - "5000:5000"
+    environment:
+      - EXTERNAL_PORT=5000
+      - PGDATABASE=pern-tutorial-db
+      - PGUSER=postgres
+      - PGPASSWORD=12345
+      - PGHOST=rest-db
+    depends_on:
+      - rest-db
+  rest-db: 
+    container_name: rest-db
+    image: "postgres:14"
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=12345
+      - POSTGRES_DB=pern-tutorial-db
+    volumes:
+      - nps_data:/var/lib/postgresql/data
+
+volumes:
+  nps_data: {}
