@@ -2,6 +2,7 @@ const express = require("express");
 const sequelize = require("./util/database");
 const User = require("./models/users");
 const app = express();
+require("dotenv").config();
 
 // middleware
 app.use(express.json());

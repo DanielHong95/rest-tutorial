@@ -2,12 +2,6 @@ const Sequelize = require("sequelize");
 const db = require("../util/database");
 
 const User = db.define("users", {
-  references: {
-    model: {
-      tableName: "users",
-      schema: "schema",
-    },
-  },
   id: {
     type: Sequelize.INTEGER,
     autoIncrement: true,

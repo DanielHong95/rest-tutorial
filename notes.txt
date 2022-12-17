@@ -31,3 +31,8 @@ docker exec -it <ID> psql -U **** nodedb
 
 BUILD REST API
 util/database.js
+
+Docker instructions to build container:
+- docker image build -t {insert image name}
+- docker build compose
+- docker compose up
